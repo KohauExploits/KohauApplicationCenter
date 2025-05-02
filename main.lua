@@ -18,6 +18,7 @@ end
 
 local function CreateLoadingScreen(parent)
     local screenGui = Instance.new("ScreenGui")
+    screenGui.IgnoreGuiInset = true
     screenGui.Name = "LoadingScreen"
     screenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     screenGui.Parent = parent
@@ -63,6 +64,7 @@ end
 local ui = CreateLoadingScreen(Player:WaitForChild("PlayerGui"))
 
 TweenService:Create(ui.MainFrame, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {GroupTransparency = 0}):Play()
+ui.MainFrame.BackgroundTransparency = .3
 
 local function UpdateStatus(text)
     if ui.StatusText then
